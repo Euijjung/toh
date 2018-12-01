@@ -1,0 +1,45 @@
+<h2>{{ hero.name }} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>
+<!-- 바인딩 – INTERPOLATION(객체) -->
+
+
+<div>
+  <button [disabled]="isSpecial">propery binding button</button> <!--//isSpecial 은 앵귤려 모델-->
+</div>
+
+<div>
+  <div [class.special]="isSpecial">class binding button</div>
+</div>
+
+<div>
+  <button [style.color]="isSpecial ? 'red' : 'green'">style binding button</button>
+</div>
+<!--위에 세개는 모델값을 바꾸면 뷰에 바인딩 property binding-->
+
+
+
+<!--<div>-->
+  <!--<button onclick="alert('hi')">event binding</button>-->
+<!--</div>// 자바스크립트에서의 바인딩 -->
+<div>
+  <button (click)="onSave($event)">event binding save button</button>
+  <!--앵귤러는 $event 라는 파리미터도 같이 넘겨줘야한다-->
+</div>
+<!--뷰가 모델로 바인딩-->
+
+
+
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+</div>
+
+
+<h2>My Heroes</h2>
+<ul>
+  <li *ngFor="let hero of heroes"> <!--let .. of .. 은 es6 문법-->
+    <span>{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
